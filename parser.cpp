@@ -55,8 +55,6 @@ int main(int argc, char ** argv) {
         if(currOpcode == "OP_JUMP") {
             TableEntry* currentEntry = SymbolTable::getFromTable(currStatement->getOperands());
             i = std::get<0>(currentEntry->entry) - 1;
-
-            std::cout << "Test: " << InstructionBuffer::getStatementFromBuffer(7)->getOpcode() << std::endl;
             
         }
         else if(currOpcode == "OP_GOSUB") {
@@ -163,7 +161,6 @@ void processStatement(std::string statement) {
     }
     else if(std::regex_match(statement, label)) {
         Stmt* stmt = new Label(statement);
-        Stmt::numLabels++;
     }
     else if(std::regex_match(statement, jump)) {
         Stmt* stmt = new Jump(statement);
@@ -171,7 +168,7 @@ void processStatement(std::string statement) {
     }
     else if(std::regex_match(statement, gosublabel)) {
         Stmt* stmt = new Gosublabel(statement);
-        Stmt::numLabels++;
+        InstructionBuffer::addToBuffer(stmt);
     }
     else if(std::regex_match(statement, gosub)) {
         Stmt* stmt = new Gosub(statement);

@@ -7,6 +7,7 @@
 
 class Gosublabel: public Stmt {
     public:
+        int dataMemorySize;
         std::string name;
         Gosublabel(std::string statement);
         void serialize();
