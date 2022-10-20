@@ -19,12 +19,7 @@ SymbolTable* SymbolTable::getSymbolTable() {
 }
 
 void SymbolTable::insertTable(std::string key, TableEntry* data) {
-
-    std::map<std::string, TableEntry*> dummy = table->map;
-    
-
     table->map.insert(std::pair<std::string, TableEntry*>(key, data));
-
 }
 
 TableEntry* SymbolTable::getFromTable(std::string key) {
