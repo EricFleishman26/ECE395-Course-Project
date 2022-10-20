@@ -1,9 +1,12 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <tuple>
 #include <regex>
 #include "Stmt.h"
 #include "InstructionBuffer.h"
+#include "TableEntry.h"
+#include "SymbolTable.h"
 #include "Pushi.h"
 #include "Start.h"
 #include "Exit.h"
@@ -16,12 +19,14 @@
 #include "Negate.h"
 #include "Pop.h"
 #include "Swap.h"
+#include "Label.h"
 
 int Stmt::numVariables = 0;
 
 void processStatement(std::string statement);
 
 InstructionBuffer* buffer = InstructionBuffer::getInstructionBuffer();
+SymbolTable* sbTable = SymbolTable::getSymbolTable();
 
 int main(int argc, char ** argv) {
 
@@ -30,8 +35,6 @@ int main(int argc, char ** argv) {
 
     while(std::getline(inputFile, data)) {
 
-        // Stmt * statement = getStatement(data);
-        // InstructionBuffer::addToBuffer(statement);
         processStatement(data);
     }
 
@@ -59,6 +62,7 @@ void processStatement(std::string statement) {
     std::regex negate("(negate)(.*)");
     std::regex pop("(pop)(.*)");
     std::regex swap("(swap)(.*)");
+    std::regex label("(label)(.*)");
     
     if(std::regex_match(statement, start)) {
         Stmt* stmt = new Start();
@@ -108,4 +112,8 @@ void processStatement(std::string statement) {
         Stmt* stmt = new Swap();
         InstructionBuffer::addToBuffer(stmt);
     }
+    else if(std::regex_match(statement, label)) {
+        Stmt* stmt = new Label(statement);
+    }
+
 }

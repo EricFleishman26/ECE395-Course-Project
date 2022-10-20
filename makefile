@@ -8,4 +8,4 @@ clean:
 	rm *.o a.out
 
 run:
-	./a.out ./OutputAndTestCases/TestCases10_08_22/10Swap
+	./a.out ./OutputAndTestCases/TestCases10_08_22/11Label
