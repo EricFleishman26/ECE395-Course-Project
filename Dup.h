@@ -10,6 +10,8 @@ class Dup: public Stmt {
         std::string opcode;
         Dup();
         void serialize();
+        std::string getOpcode();
+        std::string getOperands();
 };
 
 #endif

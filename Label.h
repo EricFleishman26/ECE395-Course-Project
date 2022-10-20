@@ -13,6 +13,8 @@ class Label: public Stmt {
         std::string name;
         Label(std::string statement);
         void serialize();
+        std::string getOpcode();
+        std::string getOperands();
 };
 
 #endif

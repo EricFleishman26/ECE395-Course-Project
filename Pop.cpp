@@ -9,3 +9,11 @@ Pop::Pop() {
 void Pop::serialize() {
     std::cout << "Pop" << std::endl;
 }
+
+std::string Pop::getOpcode() {
+    return opcode;
+}
+
+std::string Pop::getOperands() {
+    return "Unimp";
+}

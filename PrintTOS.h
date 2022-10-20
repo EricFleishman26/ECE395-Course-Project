@@ -10,6 +10,8 @@ class PrintTOS: public Stmt {
         std::string opcode;
         PrintTOS();
         void serialize();
+        std::string getOpcode();
+        std::string getOperands();
 };
 
 #endif

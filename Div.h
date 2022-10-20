@@ -10,6 +10,8 @@ class Div: public Stmt {
         std::string opcode;
         Div();
         void serialize();
+        std::string getOpcode();
+        std::string getOperands();
 };
 
 #endif

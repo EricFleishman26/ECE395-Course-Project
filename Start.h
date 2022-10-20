@@ -13,6 +13,8 @@ class Start: public Stmt {
     public:
         Start();
         void serialize();
+        std::string getOpcode();
+        std::string getOperands();
 };
 
 #endif

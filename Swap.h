@@ -10,6 +10,8 @@ class Swap: public Stmt {
         std::string opcode;
         Swap();
         void serialize();
+        std::string getOpcode();
+        std::string getOperands();
 };
 
 #endif

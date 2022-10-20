@@ -9,3 +9,11 @@ Exit::Exit() {
 void Exit::serialize() {
     std::cout << "Exit" << std::endl;
 }
+
+std::string Exit::getOpcode() {
+    return opcode;
+}
+
+std::string Exit::getOperands() {
+    return "Unimp";
+}

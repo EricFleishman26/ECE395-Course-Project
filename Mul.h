@@ -10,6 +10,8 @@ class Mul: public Stmt {
         std::string opcode;
         Mul();
         void serialize();
+        std::string getOpcode();
+        std::string getOperands();
 };
 
 #endif

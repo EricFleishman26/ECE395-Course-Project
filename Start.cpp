@@ -9,3 +9,11 @@ Start::Start() {
 void Start::serialize() {
     std::cout << "Start " << Stmt::numVariables << std::endl;
 }
+
+std::string Start::getOpcode() {
+    return opcode;
+}
+
+std::string Start::getOperands() {
+    return "Unimp";
+}

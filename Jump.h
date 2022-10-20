@@ -1,14 +1,15 @@
-#ifndef POP_H_
-#define POP_H_
+#ifndef JUMP_H_
+#define JUMP_H_
 
 #include <iostream>
 #include <string>
 #include "Stmt.h"
 
-class Pop: public Stmt {
+class Jump: public Stmt {
     public:
         std::string opcode;
-        Pop();
+        std::string label;
+        Jump(std::string statement);
         void serialize();
         std::string getOpcode();
         std::string getOperands();

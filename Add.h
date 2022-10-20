@@ -10,6 +10,8 @@ class Add: public Stmt {
         std::string opcode;
         Add();
         void serialize();
+        std::string getOpcode();
+        std::string getOperands();
 };
 
 #endif

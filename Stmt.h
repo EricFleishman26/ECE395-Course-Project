@@ -7,6 +7,8 @@ class Stmt {
     public:
         static int numVariables;
         virtual void serialize() = 0;
+        virtual std::string getOpcode() = 0;
+        virtual std::string getOperands() = 0;
 };
 
 #endif

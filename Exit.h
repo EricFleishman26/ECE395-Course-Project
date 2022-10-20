@@ -10,6 +10,8 @@ class Exit: public Stmt {
         std::string opcode;
         Exit();
         void serialize();
+        std::string getOpcode();
+        std::string getOperands();
 };
 
 #endif

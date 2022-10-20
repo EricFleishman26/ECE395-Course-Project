@@ -20,6 +20,7 @@
 #include "Pop.h"
 #include "Swap.h"
 #include "Label.h"
+#include "Jump.h"
 
 int Stmt::numVariables = 0;
 
@@ -40,6 +41,14 @@ int main(int argc, char ** argv) {
 
     for(int i = 0; i < InstructionBuffer::currentIndex; i++) {
         Stmt* currStatement = InstructionBuffer::getStatementFromBuffer(i);
+
+        std::string currOpcode = currStatement->getOpcode();
+        if(currOpcode == "OP_JUMP") {
+            TableEntry* currentEntry = SymbolTable::getFromTable(currStatement->getOperands());
+
+            i = std::get<0>(currentEntry->entry) - 1;
+        }
+
         currStatement->serialize();
     }
 
@@ -63,6 +72,7 @@ void processStatement(std::string statement) {
     std::regex pop("(pop)(.*)");
     std::regex swap("(swap)(.*)");
     std::regex label("(label)(.*)");
+    std::regex jump("(jump)(.*)");
     
     if(std::regex_match(statement, start)) {
         Stmt* stmt = new Start();
@@ -114,6 +124,10 @@ void processStatement(std::string statement) {
     }
     else if(std::regex_match(statement, label)) {
         Stmt* stmt = new Label(statement);
+    }
+    else if(std::regex_match(statement, jump)) {
+        Stmt* stmt = new Jump(statement);
+        InstructionBuffer::addToBuffer(stmt);
     }
 
 }

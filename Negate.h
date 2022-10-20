@@ -10,6 +10,8 @@ class Negate: public Stmt {
         std::string opcode;
         Negate();
         void serialize();
+        std::string getOpcode();
+        std::string getOperands();
 };
 
 #endif

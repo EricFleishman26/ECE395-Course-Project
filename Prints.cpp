@@ -14,3 +14,11 @@ Prints::Prints(std::string statement) {
 void Prints::serialize() {
     std::cout << "Prints " << sb->storedString << std::endl;
 }
+
+std::string Prints::getOpcode() {
+    return opcode;
+}
+
+std::string Prints::getOperands() {
+    return "Unimp";
+}

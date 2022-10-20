@@ -9,3 +9,11 @@ Dup::Dup() {
 void Dup::serialize() {
     std::cout << "Dup" << std::endl;
 }
+
+std::string Dup::getOpcode() {
+    return opcode;
+}
+
+std::string Dup::getOperands() {
+    return "Unimp";
+}

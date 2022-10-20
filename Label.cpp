@@ -16,3 +16,11 @@ Label::Label(std::string statement) {
 void Label::serialize() {
     //Do nothing
 }
+
+std::string Label::getOpcode() {
+    return "Ignore";
+}
+
+std::string Label::getOperands() {
+    return "Unimp";
+}

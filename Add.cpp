@@ -9,3 +9,11 @@ Add::Add() {
 void Add::serialize() {
     std::cout << "Add" << std::endl;
 }
+
+std::string Add::getOpcode() {
+    return opcode;
+}
+
+std::string Add::getOperands() {
+    return "Unimp";
+}

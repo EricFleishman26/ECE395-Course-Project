@@ -18,3 +18,11 @@ Pushi::Pushi(std::string statement) {
 void Pushi::serialize() {
     std::cout << "PushI" << "  " << "(" << integer << ")" << std::endl;
 }
+
+std::string Pushi::getOpcode() {
+    return opcode;
+}
+
+std::string Pushi::getOperands() {
+    return "Unimp";
+}
