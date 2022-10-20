@@ -15,7 +15,7 @@ void Jump::serialize() {
 
     TableEntry* tableEntry = SymbolTable::getFromTable(label);
 
-    std::cout << "Jump, " << std::get<0>(tableEntry->entry) << std::endl;
+    std::cout << opcode << std::get<0>(tableEntry->entry) << std::endl;
 
 }
 

@@ -7,7 +7,7 @@ Exit::Exit() {
 }
 
 void Exit::serialize() {
-    std::cout << "Exit" << std::endl;
+    std::cout << opcode << std::endl;
 }
 
 std::string Exit::getOpcode() {

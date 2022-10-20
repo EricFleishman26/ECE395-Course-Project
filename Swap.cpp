@@ -7,7 +7,7 @@ Swap::Swap() {
 }
 
 void Swap::serialize() {
-    std::cout << "Swap" << std::endl;
+    std::cout << opcode << std::endl;
 }
 
 std::string Swap::getOpcode() {

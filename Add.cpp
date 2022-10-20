@@ -7,7 +7,7 @@ Add::Add() {
 }
 
 void Add::serialize() {
-    std::cout << "Add" << std::endl;
+    std::cout << opcode << std::endl;
 }
 
 std::string Add::getOpcode() {

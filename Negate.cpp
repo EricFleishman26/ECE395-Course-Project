@@ -7,7 +7,7 @@ Negate::Negate() {
 }
 
 void Negate::serialize() {
-    std::cout << "Negate" << std::endl;
+    std::cout << opcode << std::endl;
 }
 
 std::string Negate::getOpcode() {

@@ -7,7 +7,7 @@ PrintTOS::PrintTOS() {
 }
 
 void PrintTOS::serialize() {
-    std::cout << "PrintTOS" << std::endl;
+    std::cout << opcode << std::endl;
 }
 
 std::string PrintTOS::getOpcode() {

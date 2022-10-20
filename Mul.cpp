@@ -7,7 +7,7 @@ Mul::Mul() {
 }
 
 void Mul::serialize() {
-    std::cout << "Mul" << std::endl;
+    std::cout << opcode << std::endl;
 }
 
 std::string Mul::getOpcode() {
