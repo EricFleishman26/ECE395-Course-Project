@@ -15,5 +15,5 @@ std::string Return::getOperands() {
 }
 
 void Return::serialize() {
-    //Do nothing
+    std::cout << "OP_RETURN" << std::endl;
 }

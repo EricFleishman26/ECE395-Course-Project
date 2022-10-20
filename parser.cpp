@@ -30,13 +30,9 @@ int Stmt::numVariables = 0;
 int Stmt::numLabels = 0;
 
 void processStatement(std::string statement);
-void runGoSub(int instructionIndex);
 
 InstructionBuffer* buffer = InstructionBuffer::getInstructionBuffer();
 SymbolTable* sbTable = SymbolTable::getSymbolTable();
-
-Stmt* goSubArray[100];
-int goSubArrayIndex = 0;
 
 int main(int argc, char ** argv) {
 
@@ -51,43 +47,12 @@ int main(int argc, char ** argv) {
     for(int i = 0; i < InstructionBuffer::currentIndex; i++) {
         Stmt* currStatement = InstructionBuffer::getStatementFromBuffer(i);
 
-        std::string currOpcode = currStatement->getOpcode();
-        if(currOpcode == "OP_JUMP") {
-            TableEntry* currentEntry = SymbolTable::getFromTable(currStatement->getOperands());
-            i = std::get<0>(currentEntry->entry) - 1;
-            
-        }
-        else if(currOpcode == "OP_GOSUB") {
-            goSubArray[goSubArrayIndex] = currStatement;
-            goSubArrayIndex++;
-        }
-        else if(currOpcode == "OP_END") {
-            for(int j = 0; j < goSubArrayIndex; j++) {
-                TableEntry* currentEntry = SymbolTable::getFromTable(goSubArray[j]->getOperands());
-                runGoSub(std::get<0>(currentEntry->entry));
-            }
-        }
-
         currStatement->serialize();
     }
 
     inputFile.close();
 
     return 0;
-}
-
-void runGoSub(int instructionIndex) {
-    for(int i = instructionIndex; i < InstructionBuffer::currentIndex; i++) {
-        Stmt* currStatement = InstructionBuffer::getStatementFromBuffer(i);
-        std::string currOpcode = currStatement->getOpcode();
-
-        if(currOpcode == "OP_RETURN") {
-            std::cout << "OP_RETURN" << std::endl;
-            return;
-        }
-
-        currStatement->serialize();
-    }
 }
 
 void processStatement(std::string statement) {
