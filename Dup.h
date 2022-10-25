@@ -9,9 +9,9 @@ class Dup: public Stmt {
     public:
         std::string opcode;
         Dup();
-        void serialize();
         std::string getOpcode();
         std::string getOperands();
+        std::string serialize();
 };
 
 #endif

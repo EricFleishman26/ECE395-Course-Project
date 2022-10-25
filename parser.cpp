@@ -52,13 +52,17 @@ int main(int argc, char ** argv) {
         processStatement(data);
     }
 
+    std::ofstream ofile;
+    ofile.open("out.pout");
+
     for(int i = 0; i < InstructionBuffer::currentIndex; i++) {
         Stmt* currStatement = InstructionBuffer::getStatementFromBuffer(i);
 
-        currStatement->serialize();
+        ofile << currStatement->serialize();
     }
 
     inputFile.close();
+    ofile.close();
 
     return 0;
 }

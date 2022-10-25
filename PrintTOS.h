@@ -9,9 +9,9 @@ class PrintTOS: public Stmt {
     public:
         std::string opcode;
         PrintTOS();
-        void serialize();
         std::string getOpcode();
         std::string getOperands();
+        std::string serialize();
 };
 
 #endif

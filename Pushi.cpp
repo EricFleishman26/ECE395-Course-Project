@@ -15,8 +15,10 @@ Pushi::Pushi(std::string statement) {
 
 }
 
-void Pushi::serialize() {
-    std::cout << opcode << "  " << "(" << integer << ")" << std::endl;
+std::string Pushi::serialize() {
+    std::string serial = "PushI  (" + integer + ")\n";
+
+    return serial;
 }
 
 std::string Pushi::getOpcode() {

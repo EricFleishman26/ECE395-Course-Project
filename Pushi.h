@@ -11,9 +11,9 @@ class Pushi: public Stmt {
         std::string opcode;
         std::string integer;
         Pushi(std::string statement);
-        void serialize();
         std::string getOpcode();
         std::string getOperands();
+        std::string serialize();
 };
 
 #endif

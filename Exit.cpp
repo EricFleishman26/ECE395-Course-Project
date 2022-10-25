@@ -6,8 +6,8 @@ Exit::Exit() {
     opcode = "OP_EXIT_PROGRAM";
 }
 
-void Exit::serialize() {
-    std::cout << opcode << std::endl;
+std::string Exit::serialize() {
+    return "Exit \n";
 }
 
 std::string Exit::getOpcode() {

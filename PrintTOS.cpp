@@ -6,8 +6,8 @@ PrintTOS::PrintTOS() {
     opcode = "OP_PRINTTOS";
 }
 
-void PrintTOS::serialize() {
-    std::cout << opcode << std::endl;
+std::string PrintTOS::serialize() {
+    return "PrintTOS \n";
 }
 
 std::string PrintTOS::getOpcode() {

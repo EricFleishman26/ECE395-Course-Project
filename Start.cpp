@@ -6,8 +6,9 @@ Start::Start() {
 
 }
 
-void Start::serialize() {
-    std::cout << "Start " << Stmt::numVariables << std::endl;
+std::string Start::serialize() {
+    std::string serial = "Start " + std::to_string(Stmt::numVariables) + "\n";
+    return serial;
 }
 
 std::string Start::getOpcode() {

@@ -9,9 +9,9 @@ class Mul: public Stmt {
     public:
         std::string opcode;
         Mul();
-        void serialize();
         std::string getOpcode();
         std::string getOperands();
+        std::string serialize();
 };
 
 #endif

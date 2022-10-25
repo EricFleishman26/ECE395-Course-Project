@@ -19,9 +19,9 @@ std::string Gosub::getOperands() {
     return label;
 }
 
-void Gosub::serialize() {
+std::string Gosub::serialize() {
 
     TableEntry* tableEntry = SymbolTable::getFromTable(label);
 
-    std::cout << opcode << " " << std::get<0>(tableEntry->entry) << std::endl;
+    return "GoSub " + label + "(" + std::to_string(std::get<0>(tableEntry->entry)) + ")\n";
 }

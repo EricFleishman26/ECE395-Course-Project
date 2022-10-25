@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Jumpnzero.h"
+#include "InstructionBuffer.h"
 
 Jumpnzero::Jumpnzero(std::string statement) {
     opcode = "OP_JUMPNZERO";
@@ -15,6 +16,10 @@ std::string Jumpnzero::getOperands() {
     return operands;
 }
 
-void Jumpnzero::serialize() {
-    std::cout << opcode << std::endl;
+std::string Jumpnzero::serialize() {
+    std::string serial = "JumpNZero, " + operands + ", " + "(" + std::to_string(InstructionBuffer::currentIndex) + ")\n";
+
+    InstructionBuffer::currentIndex++;
+
+    return serial;
 }

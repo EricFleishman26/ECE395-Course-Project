@@ -6,8 +6,8 @@ Div::Div() {
     opcode = "OP_DIV";
 }
 
-void Div::serialize() {
-    std::cout << opcode << std::endl;
+std::string Div::serialize() {
+    return "Div \n";
 }
 
 std::string Div::getOpcode() {

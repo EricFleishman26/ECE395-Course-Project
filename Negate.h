@@ -9,9 +9,9 @@ class Negate: public Stmt {
     public:
         std::string opcode;
         Negate();
-        void serialize();
         std::string getOpcode();
         std::string getOperands();
+        std::string serialize();
 };
 
 #endif

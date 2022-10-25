@@ -9,9 +9,6 @@ Pushscal::Pushscal(std::string statement) {
     opcode = "OP_PUSHSCALAR";
     operands = statement.substr(9, statement.length() - 9);
 
-    if(!Stmt::inSubroutine) {
-        Stmt::numVariables++;
-    }
 }
 
 std::string Pushscal::getOpcode() {
@@ -22,6 +19,11 @@ std::string Pushscal::getOperands() {
     return operands;
 }
 
-void Pushscal::serialize() {
-    std::cout << opcode << std::endl;
+std::string Pushscal::serialize() {
+
+    TableEntry* tableEntry = SymbolTable::getFromTable(operands);
+    int location = std::get<0>(tableEntry->entry);
+
+    std::string serial = "PushScalar " + operands + ", (" + std::to_string(location) + ")\n";
+    return serial;
 }

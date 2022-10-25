@@ -9,9 +9,9 @@ class Exit: public Stmt {
     public:
         std::string opcode;
         Exit();
-        void serialize();
         std::string getOpcode();
         std::string getOperands();
+        std::string serialize();
 };
 
 #endif

@@ -6,8 +6,8 @@ Add::Add() {
     opcode = "OP_ADD";
 }
 
-void Add::serialize() {
-    std::cout << opcode << std::endl;
+std::string Add::serialize() {
+    return "Add \n";
 }
 
 std::string Add::getOpcode() {

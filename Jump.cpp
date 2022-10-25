@@ -11,11 +11,11 @@ Jump::Jump(std::string statement) {
     label = statement.substr(5, statement.length() - 5);
 }
 
-void Jump::serialize() {
+std::string Jump::serialize() {
 
     TableEntry* tableEntry = SymbolTable::getFromTable(label);
 
-    std::cout << opcode << " " << std::get<0>(tableEntry->entry) << std::endl;
+    return "Jump, " + std::to_string(std::get<0>(tableEntry->entry)) + "\n";
 
 }
 

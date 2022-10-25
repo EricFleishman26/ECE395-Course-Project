@@ -9,9 +9,6 @@ Popscal::Popscal(std::string statement) {
     opcode = "OP_POPSCAL";
     operands = statement.substr(8, statement.length() - 8);
 
-    if(!Stmt::inSubroutine) {
-        Stmt::numVariables++;
-    }
 }
 
 std::string Popscal::getOpcode() {
@@ -22,6 +19,7 @@ std::string Popscal::getOperands() {
     return operands;
 }
 
-void Popscal::serialize() {
-    std::cout << opcode << std::endl;
+std::string Popscal::serialize() {
+    std::string serial = "PopScalar " + operands + ", " + "(0)\n";
+    return serial;
 }

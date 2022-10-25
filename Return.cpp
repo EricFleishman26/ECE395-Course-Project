@@ -14,6 +14,6 @@ std::string Return::getOperands() {
     return "Ignore";
 }
 
-void Return::serialize() {
-    std::cout << "OP_RETURN" << std::endl;
+std::string Return::serialize() {
+    return "Return\n";
 }

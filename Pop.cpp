@@ -6,8 +6,8 @@ Pop::Pop() {
     opcode = "OP_POP";
 }
 
-void Pop::serialize() {
-    std::cout << opcode << std::endl;
+std::string Pop::serialize() {
+    return "Pop \n";
 }
 
 std::string Pop::getOpcode() {

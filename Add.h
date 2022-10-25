@@ -9,7 +9,7 @@ class Add: public Stmt {
     public:
         std::string opcode;
         Add();
-        void serialize();
+        std::string serialize();
         std::string getOpcode();
         std::string getOperands();
 };

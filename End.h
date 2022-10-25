@@ -11,7 +11,7 @@ class End: public Stmt {
         End();
         std::string getOpcode();
         std::string getOperands();
-        void serialize();
+        std::string serialize();
 };
 
 #endif

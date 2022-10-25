@@ -11,9 +11,9 @@ class Prints: public Stmt {
         std::string opcode;
         StringBuffer* sb;
         Prints(std::string statement);
-        void serialize();
         std::string getOpcode();
         std::string getOperands();
+        std::string serialize();
 };
 
 #endif

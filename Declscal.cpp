@@ -8,7 +8,7 @@
 Declscal::Declscal(std::string statement) {
 
     scalName = statement.substr(9, statement.length() - 9);
-    TableEntry* entry = new TableEntry(InstructionBuffer::currentIndex, 0);
+    TableEntry* entry = new TableEntry(InstructionBuffer::currentIndex, 1);
     SymbolTable::insertTable(scalName, entry);
 
     if(!Stmt::inSubroutine) {
@@ -26,6 +26,6 @@ std::string Declscal::getOperands() {
     return "Ignore";
 }
 
-void Declscal::serialize() {
-    //Do nothing
+std::string Declscal::serialize() {
+    return "";
 }

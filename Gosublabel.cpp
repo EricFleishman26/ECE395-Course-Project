@@ -20,6 +20,6 @@ std::string Gosublabel::getOperands() {
     return name;
 }
 
-void Gosublabel::serialize() {
-    std::cout << "OP_ENTER_SUBROUTINE " << name <<  std::endl;
+std::string Gosublabel::serialize() {
+    return "GoSubLabel " + name + "\n";
 }

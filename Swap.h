@@ -9,9 +9,9 @@ class Swap: public Stmt {
     public:
         std::string opcode;
         Swap();
-        void serialize();
         std::string getOpcode();
         std::string getOperands();
+        std::string serialize();
 };
 
 #endif

@@ -6,8 +6,8 @@ Dup::Dup() {
     opcode = "OP_DUP";
 }
 
-void Dup::serialize() {
-    std::cout << opcode << std::endl;
+std::string Dup::serialize() {
+    return "Dup \n";
 }
 
 std::string Dup::getOpcode() {

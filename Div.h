@@ -9,9 +9,9 @@ class Div: public Stmt {
     public:
         std::string opcode;
         Div();
-        void serialize();
         std::string getOpcode();
         std::string getOperands();
+        std::string serialize();
 };
 
 #endif

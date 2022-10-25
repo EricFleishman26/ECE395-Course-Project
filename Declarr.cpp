@@ -45,6 +45,6 @@ std::string Declarr::getOperands() {
     return "Ignore";
 }
 
-void Declarr::serialize() {
-    // Do nothing
+std::string Declarr::serialize() {
+    return "";
 }

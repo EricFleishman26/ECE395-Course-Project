@@ -10,9 +10,9 @@ class Gosublabel: public Stmt {
         int dataMemorySize;
         std::string name;
         Gosublabel(std::string statement);
-        void serialize();
         std::string getOpcode();
         std::string getOperands();
+        std::string serialize();
 };
 
 #endif

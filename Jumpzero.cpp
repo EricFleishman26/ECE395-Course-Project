@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Jumpzero.h"
+#include "InstructionBuffer.h"
 
 Jumpzero::Jumpzero(std::string statement) {
     opcode = "OP_JUMPZERO";
@@ -15,6 +16,8 @@ std::string Jumpzero::getOperands() {
     return operands;
 }
 
-void Jumpzero::serialize() {
-    std::cout << opcode << std::endl;
+std::string Jumpzero::serialize() {
+    std::string serial = "JumpZero, " + operands + ", " + "(" + std::to_string(InstructionBuffer::currentIndex) + ")\n";
+
+    return serial;
 }

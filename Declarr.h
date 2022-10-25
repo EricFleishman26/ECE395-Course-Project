@@ -12,7 +12,7 @@ class Declarr: public Stmt {
         Declarr(std::string statement);
         std::string getOpcode();
         std::string getOperands();
-        void serialize();
+        std::string serialize();
 };
 
 #endif

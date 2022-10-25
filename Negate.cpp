@@ -6,8 +6,8 @@ Negate::Negate() {
     opcode = "OP_NEGATE";
 }
 
-void Negate::serialize() {
-    std::cout << opcode << std::endl;
+std::string Negate::serialize() {
+    return "Negate \n";
 }
 
 std::string Negate::getOpcode() {

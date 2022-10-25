@@ -14,6 +14,6 @@ std::string End::getOperands() {
     return "Ignore";
 }
 
-void End::serialize() {
-    //Do nothing
+std::string End::serialize() {
+    return "";
 }

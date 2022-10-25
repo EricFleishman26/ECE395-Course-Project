@@ -12,9 +12,9 @@ class Start: public Stmt {
         std::string opcode;
     public:
         Start();
-        void serialize();
         std::string getOpcode();
         std::string getOperands();
+        std::string serialize();
 };
 
 #endif

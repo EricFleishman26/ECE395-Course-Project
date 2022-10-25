@@ -13,8 +13,8 @@ Label::Label(std::string statement) {
 
 }
 
-void Label::serialize() {
-    //Do nothing
+std::string Label::serialize() {
+    return "";
 }
 
 std::string Label::getOpcode() {

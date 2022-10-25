@@ -12,7 +12,7 @@ class Pushscal: public Stmt {
         std::string operands;
         std::string getOpcode();
         std::string getOperands();
-        void serialize();
+        std::string serialize();
 };
 
 #endif

@@ -9,9 +9,6 @@ Poparr::Poparr(std::string statement) {
     opcode = "OP_POPARRAY";
     operands = statement.substr(7, statement.length() - 7);
 
-    if(!Stmt::inSubroutine) {
-        Stmt::numVariables++;
-    }
 }
 
 std::string Poparr::getOpcode() {
@@ -22,6 +19,7 @@ std::string Poparr::getOperands() {
     return operands;
 }
 
-void Poparr::serialize() {
-    std::cout << opcode << std::endl;
+std::string Poparr::serialize() {
+    std::string serial = "PopArray " + operands + ", " + "(0)";
+    return serial;
 }

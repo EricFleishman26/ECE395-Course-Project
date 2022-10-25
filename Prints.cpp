@@ -11,8 +11,9 @@ Prints::Prints(std::string statement) {
 
 }
 
-void Prints::serialize() {
-    std::cout << opcode << " " << sb->storedString << std::endl;
+std::string Prints::serialize() {
+    std::string serial = "Prints " + sb->storedString + "\n";
+    return serial;
 }
 
 std::string Prints::getOpcode() {

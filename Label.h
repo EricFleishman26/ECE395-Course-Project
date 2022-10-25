@@ -12,9 +12,9 @@ class Label: public Stmt {
     public:
         std::string name;
         Label(std::string statement);
-        void serialize();
         std::string getOpcode();
         std::string getOperands();
+        std::string serialize();
 };
 
 #endif

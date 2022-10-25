@@ -12,7 +12,7 @@ class Jumpzero: public Stmt {
         Jumpzero(std::string statement);
         std::string getOpcode();
         std::string getOperands();
-        void serialize();
+        std::string serialize();
 };
 
 #endif

@@ -9,9 +9,9 @@ class Pop: public Stmt {
     public:
         std::string opcode;
         Pop();
-        void serialize();
         std::string getOpcode();
         std::string getOperands();
+        std::string serialize();
 };
 
 #endif
