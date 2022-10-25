@@ -5,6 +5,10 @@
 Pusharr::Pusharr(std::string statement) {
     opcode = "OP_PUSHARRAY";
     operands = statement.substr(8, statement.length() - 8);
+
+    if(!Stmt::inSubroutine) {
+        Stmt::numVariables++;
+    }
 }
 
 std::string Pusharr::getOpcode() {

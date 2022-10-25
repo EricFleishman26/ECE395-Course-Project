@@ -8,6 +8,10 @@
 Popscal::Popscal(std::string statement) {
     opcode = "OP_POPSCAL";
     operands = statement.substr(8, statement.length() - 8);
+
+    if(!Stmt::inSubroutine) {
+        Stmt::numVariables++;
+    }
 }
 
 std::string Popscal::getOpcode() {

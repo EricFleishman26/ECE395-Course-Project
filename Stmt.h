@@ -6,7 +6,7 @@
 class Stmt {
     public:
         static int numVariables;
-        static int numLabels;
+        static bool inSubroutine;
         virtual void serialize() = 0;
         virtual std::string getOpcode() = 0;
         virtual std::string getOperands() = 0;

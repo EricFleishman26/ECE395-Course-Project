@@ -7,10 +7,13 @@
 
 Declscal::Declscal(std::string statement) {
 
-    Stmt::numVariables++;
     scalName = statement.substr(9, statement.length() - 9);
     TableEntry* entry = new TableEntry(InstructionBuffer::currentIndex, 0);
     SymbolTable::insertTable(scalName, entry);
+
+    if(!Stmt::inSubroutine) {
+        Stmt::numVariables++;
+    }
 
 
 }

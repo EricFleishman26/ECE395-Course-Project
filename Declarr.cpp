@@ -30,6 +30,10 @@ Declarr::Declarr(std::string statement) {
 
     SymbolTable::insertTable(arrName, entry);
 
+    if(!Stmt::inSubroutine) {
+        Stmt::numVariables++;
+    }
+
 
 }
 

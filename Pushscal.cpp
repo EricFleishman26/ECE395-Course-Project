@@ -8,6 +8,10 @@
 Pushscal::Pushscal(std::string statement) {
     opcode = "OP_PUSHSCALAR";
     operands = statement.substr(9, statement.length() - 9);
+
+    if(!Stmt::inSubroutine) {
+        Stmt::numVariables++;
+    }
 }
 
 std::string Pushscal::getOpcode() {

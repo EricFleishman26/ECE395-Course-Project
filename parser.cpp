@@ -31,9 +31,11 @@
 #include "Declarr.h"
 #include "Pusharr.h"
 #include "Poparr.h"
+#include "Jumpzero.h"
+#include "Jumpnzero.h"
 
 int Stmt::numVariables = 0;
-int Stmt::numLabels = 0;
+bool Stmt::inSubroutine = false;
 
 void processStatement(std::string statement);
 
@@ -87,6 +89,8 @@ void processStatement(std::string statement) {
     std::regex declarr("(declarr)(.*)");
     std::regex pusharr("(pusharr)(.*)");
     std::regex poparr("(poparr)(.*)");
+    std::regex jumpzero("(jumpzero)(.*)");
+    std::regex jumpnzero("(jumpnzero)(.*)");
     
     if(std::regex_match(statement, start)) {
         Stmt* stmt = new Start();
@@ -154,6 +158,14 @@ void processStatement(std::string statement) {
     }
     else if(std::regex_match(statement, label)) {
         Stmt* stmt = new Label(statement);
+    }
+    else if(std::regex_match(statement, jumpnzero)) {
+        Stmt* stmt = new Jumpnzero(statement);
+        InstructionBuffer::addToBuffer(stmt);
+    }
+    else if(std::regex_match(statement, jumpzero)) {
+        Stmt* stmt = new Jumpzero(statement);
+        InstructionBuffer::addToBuffer(stmt);
     }
     else if(std::regex_match(statement, jump)) {
         Stmt* stmt = new Jump(statement);

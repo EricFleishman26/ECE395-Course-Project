@@ -8,6 +8,7 @@
 Gosub::Gosub(std::string statement) {
     opcode = "OP_GOSUB";
     label = statement.substr(6, statement.length() - 6);
+    Stmt::inSubroutine = true;
 }
 
 std::string Gosub::getOpcode() {

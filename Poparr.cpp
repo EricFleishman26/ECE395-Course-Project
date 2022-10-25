@@ -8,6 +8,10 @@
 Poparr::Poparr(std::string statement) {
     opcode = "OP_POPARRAY";
     operands = statement.substr(7, statement.length() - 7);
+
+    if(!Stmt::inSubroutine) {
+        Stmt::numVariables++;
+    }
 }
 
 std::string Poparr::getOpcode() {
