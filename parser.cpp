@@ -25,6 +25,12 @@
 #include "Gosublabel.h"
 #include "End.h"
 #include "Return.h"
+#include "Declscal.h"
+#include "Pushscal.h"
+#include "Popscal.h"
+#include "Declarr.h"
+#include "Pusharr.h"
+#include "Poparr.h"
 
 int Stmt::numVariables = 0;
 int Stmt::numLabels = 0;
@@ -75,6 +81,12 @@ void processStatement(std::string statement) {
     std::regex gosublabel("(gosublabel)(.*)");
     std::regex end("(end)(.*)");
     std::regex returnS("(return)(.*)");
+    std::regex declscal("(declscal)(.*)");
+    std::regex pushscal("(pushscal)(.*)");
+    std::regex popscal("(popscal)(.*)");
+    std::regex declarr("(declarr)(.*)");
+    std::regex pusharr("(pusharr)(.*)");
+    std::regex poparr("(poparr)(.*)");
     
     if(std::regex_match(statement, start)) {
         Stmt* stmt = new Start();
@@ -82,6 +94,14 @@ void processStatement(std::string statement) {
     }
     else if(std::regex_match(statement, exit)) {
         Stmt* stmt = new Exit();
+        InstructionBuffer::addToBuffer(stmt);
+    }
+    else if(std::regex_match(statement, pushscal)) {
+        Stmt* stmt = new Pushscal(statement);
+        InstructionBuffer::addToBuffer(stmt);
+    }
+    else if(std::regex_match(statement, pusharr)) {
+        Stmt* stmt = new Pusharr(statement);
         InstructionBuffer::addToBuffer(stmt);
     }
     else if(std::regex_match(statement, pushi)) {
@@ -116,6 +136,14 @@ void processStatement(std::string statement) {
         Stmt* stmt = new Negate();
         InstructionBuffer::addToBuffer(stmt);
     }
+    else if(std::regex_match(statement, popscal)) {
+        Stmt* stmt = new Popscal(statement);
+        InstructionBuffer::addToBuffer(stmt);
+    }
+    else if(std::regex_match(statement, poparr)) {
+        Stmt* stmt = new Poparr(statement);
+        InstructionBuffer::addToBuffer(stmt);
+    }
     else if(std::regex_match(statement, pop)) {
         Stmt* stmt = new Pop();
         InstructionBuffer::addToBuffer(stmt);
@@ -146,6 +174,12 @@ void processStatement(std::string statement) {
     else if(std::regex_match(statement, returnS)) {
         Stmt* stmt = new Return();
         InstructionBuffer::addToBuffer(stmt);
+    }
+    else if(std::regex_match(statement, declscal)) {
+        Stmt* stmt = new Declscal(statement);
+    }
+    else if(std::regex_match(statement, declarr)) {
+        Stmt* stmt = new Declarr(statement);
     }
 
 }

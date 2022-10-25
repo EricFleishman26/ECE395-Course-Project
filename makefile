@@ -8,4 +8,4 @@ clean:
 	rm *.o a.out
 
 run:
-	./a.out ./OutputAndTestCases/TestCases10_08_22/12Jump
+	./a.out ./OutputAndTestCases/TestCases10_08_22/23ArrayHardest

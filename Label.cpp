@@ -8,7 +8,7 @@
 Label::Label(std::string statement) {
 
     name = statement.substr(6, statement.length() - 6);
-    TableEntry* entry = new TableEntry(InstructionBuffer::currentIndex + Stmt::numLabels, 0);
+    TableEntry* entry = new TableEntry(InstructionBuffer::currentIndex, 0);
     SymbolTable::insertTable(name, entry);
 
 }

@@ -8,7 +8,7 @@
 Gosublabel::Gosublabel(std::string statement) {
     dataMemorySize = 0;
     name = statement.substr(11, statement.length() - 11);
-    TableEntry* entry = new TableEntry(InstructionBuffer::currentIndex + Stmt::numLabels, 0);
+    TableEntry* entry = new TableEntry(InstructionBuffer::currentIndex, 0);
     SymbolTable::insertTable(name, entry);
 }
 
