@@ -26,11 +26,22 @@ Declarr::Declarr(std::string statement) {
 
     arrLength = std::stoi(wordBreaker);
 
-    TableEntry* entry = new TableEntry(SymbolTable::varLocation, arrLength);
-
-    SymbolTable::varLocation++;
-
-    SymbolTable::insertTable(arrName, entry);
+    if(SymbolTable::getFromTable(arrName) != nullptr) {
+        if(Stmt::inSubroutine) {
+            SymbolTable::remove(arrName);
+            TableEntry* entry = new TableEntry(SymbolTable::varLocation, arrLength);
+            SymbolTable::insertTable(arrName, entry);
+            SymbolTable::varLocation += arrLength;
+        }
+        else {
+            //Error for double declaring
+        }
+    }
+    else {
+        TableEntry* entry = new TableEntry(SymbolTable::varLocation, arrLength);
+        SymbolTable::insertTable(arrName, entry);
+        SymbolTable::varLocation += arrLength;
+    }
 
     if(!Stmt::inSubroutine) {
         Stmt::numVariables += arrLength;

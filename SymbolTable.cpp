@@ -27,10 +27,18 @@ TableEntry* SymbolTable::getFromTable(std::string key) {
 
     auto iterator = table->map.find(key);
 
+    if(iterator == table->map.end()) {
+        return nullptr;
+    }
+
     return iterator->second;
 
 }
 
 std::map<std::string, TableEntry*> SymbolTable::getMap() {
     return table->map;
+}
+
+void SymbolTable::remove(std::string key) {
+    table->map.erase(key);
 }

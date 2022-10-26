@@ -18,6 +18,7 @@ class SymbolTable {
         static int varLocation;
         static TableEntry* getFromTable(std::string key);
         std::map<std::string, TableEntry*> getMap();
+        static void remove(std::string key);
 };
 
 #endif
