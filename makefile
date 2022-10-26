@@ -11,4 +11,4 @@ clean:
 	rm *.o a.out
 
 run:
-	./a.out ./OutputAndTestCases/TestCases10_08_22/16ScalarEasy
+	./a.out ./OutputAndTestCases/TestCases10_08_22/99Sample

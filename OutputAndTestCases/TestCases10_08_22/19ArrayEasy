@@ -2,9 +2,9 @@ start
 declarr A 3
 pushi 4
 pushi 2
-poparr A 
+poparr A
 pushi 2
-pusharr A 
+pusharr A
 printtos
 exit
 end

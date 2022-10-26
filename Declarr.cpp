@@ -26,12 +26,14 @@ Declarr::Declarr(std::string statement) {
 
     arrLength = std::stoi(wordBreaker);
 
-    TableEntry* entry = new TableEntry(InstructionBuffer::currentIndex, arrLength);
+    TableEntry* entry = new TableEntry(SymbolTable::varLocation, arrLength);
+
+    SymbolTable::varLocation++;
 
     SymbolTable::insertTable(arrName, entry);
 
     if(!Stmt::inSubroutine) {
-        Stmt::numVariables++;
+        Stmt::numVariables += arrLength;
     }
 
 

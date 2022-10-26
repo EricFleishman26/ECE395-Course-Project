@@ -15,6 +15,7 @@ class SymbolTable {
     public:
         static SymbolTable* getSymbolTable();
         static void insertTable(std::string key, TableEntry* data);
+        static int varLocation;
         static TableEntry* getFromTable(std::string key);
         std::map<std::string, TableEntry*> getMap();
 };

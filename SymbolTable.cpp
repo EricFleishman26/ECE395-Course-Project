@@ -5,6 +5,7 @@
 #include "SymbolTable.h"
 
 SymbolTable* SymbolTable::table = nullptr;
+int SymbolTable::varLocation = 0;
 
 SymbolTable::SymbolTable() {
 }

@@ -2,6 +2,7 @@
 #include <string>
 #include "Jumpnzero.h"
 #include "InstructionBuffer.h"
+#include "SymbolTable.h"
 
 Jumpnzero::Jumpnzero(std::string statement) {
     opcode = "OP_JUMPNZERO";
@@ -17,9 +18,10 @@ std::string Jumpnzero::getOperands() {
 }
 
 std::string Jumpnzero::serialize() {
-    std::string serial = "JumpNZero, " + operands + ", " + "(" + std::to_string(InstructionBuffer::currentIndex) + ")\n";
+    TableEntry* tableEntry = SymbolTable::getFromTable(operands);
+    int location = std::get<0>(tableEntry->entry);
 
-    InstructionBuffer::currentIndex++;
+    std::string serial = "JumpNZero, " + operands + ", " + "(" + std::to_string(location) + ")\n";
 
     return serial;
 }
