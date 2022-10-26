@@ -6,12 +6,7 @@
 Pushi::Pushi(std::string statement) {
     opcode = "OP_PUSHI";
 
-    std::regex reg(R"((?:^|\s)([+-]?[[:digit:]]+(?:\.[[:digit:]]+)?)(?=$|\s))");
-    std::smatch m;
-    while (regex_search(statement, m, reg)) {
-        integer = m[1];
-        break;
-    }  
+    integer = statement.substr(6, statement.length() - 6);
 
 }
 
