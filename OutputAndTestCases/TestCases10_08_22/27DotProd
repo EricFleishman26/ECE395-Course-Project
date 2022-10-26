@@ -33,9 +33,9 @@ add
 dup
 popscal I
 dup
-pusharr A 
+pusharr A
 swap
-pusharr B 
+pusharr B
 mul
 pushscal C
 add

@@ -53,7 +53,7 @@ int main(int argc, char ** argv) {
     }
 
     std::ofstream ofile;
-    ofile.open("out.pout");
+    ofile.open(argv[2]);
 
     for(int i = 0; i < InstructionBuffer::currentIndex; i++) {
         Stmt* currStatement = InstructionBuffer::getStatementFromBuffer(i);

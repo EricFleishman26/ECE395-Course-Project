@@ -11,4 +11,4 @@ clean:
 	rm *.o a.out
 
 run:
-	./a.out ./OutputAndTestCases/TestCases10_08_22/23ArrayHardest
+	./a.out ./OutputAndTestCases/TestCases10_08_22/27DotProd 27DotProd.pout
