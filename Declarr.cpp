@@ -35,6 +35,8 @@ Declarr::Declarr(std::string statement) {
         }
         else {
             //Error for double declaring
+            std::cout << "error: attempting to add variable with name " << arrName << " twice" << std::endl;
+            exit(1);
         }
     }
     else {

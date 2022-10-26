@@ -46,10 +46,27 @@ int main(int argc, char ** argv) {
 
     std::ifstream inputFile(argv[1]);
     std::string data;
+    std::string lastStatement;
+    bool hasEndStatement = false;
 
     while(std::getline(inputFile, data)) {
 
+        if(data == "end") {
+            hasEndStatement = true;
+        }
+
         processStatement(data);
+        lastStatement = data;
+    }
+
+    if(!hasEndStatement) {
+        std::cout << "error: no end statement in program" << std::endl;
+        exit(1);
+    }
+
+    if(lastStatement != "end") {
+        std::cout << "error: code encountered after an end statement" << std::endl;
+        exit(1);
     }
 
     std::ofstream ofile;

@@ -8,8 +8,15 @@
 Label::Label(std::string statement) {
 
     name = statement.substr(6, statement.length() - 6);
-    TableEntry* entry = new TableEntry(InstructionBuffer::currentIndex, 0);
-    SymbolTable::insertTable(name, entry);
+
+    if(SymbolTable::getFromTable(name) == nullptr) {
+        TableEntry* entry = new TableEntry(InstructionBuffer::currentIndex, 0);
+        SymbolTable::insertTable(name, entry);
+    }
+    else {
+        std::cout << "error: attempting to add label with name " << name << " twice" << std::endl;
+        exit(1);
+    }
 
 }
 

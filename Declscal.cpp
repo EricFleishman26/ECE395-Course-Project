@@ -18,6 +18,8 @@ Declscal::Declscal(std::string statement) {
         }
         else {
             //Error for double defining
+            std::cout << "error: attempting to add variable with name " << scalName << " twice" << std::endl;
+            exit(1);
         }
     }
     else {
